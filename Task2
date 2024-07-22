@@ -1,0 +1,21 @@
+viggu uut ( .in(in), .clk(clk), .rst(rst), .out (out) );
+
+initial begin
+
+// Initialize Inputs
+
+in = 0;
+
+clk = 0;
+
+rst = 0;
+
+// Wait 100 ns for global reset to finish
+
+rst-l'bl;#20; rst-l'b0;#20; in-l'b0;#20; in-l'bl;#20; in=1'bl;#20;
+
+end
+
+always #5 clk=~clk;
+
+endmodule
